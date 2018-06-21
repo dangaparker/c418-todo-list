@@ -1,9 +1,8 @@
 import React from 'react';
-import listData from '../data/list';
 
-export default props => {
-    console.log('List Data:', listData);
-    const listElements = listData.map((item, index) => {
+
+export default props => {   
+    const listElements = props.data.map((item, index) => {
         return <li className='collection-item' key={index}>{item.title}</li>
     })
 

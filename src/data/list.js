@@ -4,19 +4,19 @@ export default [
         details: 'Clean inside and outside'
     },
     {
-        title: 'Wash Room',
-        details: 'Clean inside and outside'
+        title: 'Clean Room',
+        details: 'Dust and vacuum'
     },
     {
-        title: 'Wash Laundry',
-        details: 'Clean inside and outside'
+        title: 'Do Laundry',
+        details: 'Wash and Dry'
     },
     {
-        title: 'Wash Window',
-        details: 'Clean inside and outside'
+        title: 'Feed Dog',
+        details: 'Leftovers'
     },
     {
-        title: 'Wash Hall',
-        details: 'Clean inside and outside'
+        title: 'Buy Groceries',
+        details: 'Pick up vegetables for dinner'
     }
 ]
