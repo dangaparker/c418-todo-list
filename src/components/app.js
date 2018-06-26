@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import List from './list';
 import AddItem from './add_item';
-import listData from '../data/list';
+import axios from 'axios';
+
 
 class App extends Component{
     constructor(props){
@@ -10,24 +11,48 @@ class App extends Component{
         this.state = {
             list: []
         };
-
+        this.base_url = 'http://api.reactprototypes.com';
+        this.api_key= '?key=c418ddemouser'
     }
 
-    getListData(){
-        this.setState({
-            list: listData
-        });
+    async addItem(item){
+       try{
+        const resp = await axios.post(`${this.base_url}/todos${this.api_key}`, item)
+        this.getListData()   
+    } 
+        catch(err){
+            console.log('erro:', err.message)
+        }
+
+        
+        
     }
+
+   async getListData(){
+    //   axios.get(`${this.base_url}/todos${this.api_key}`).then(response => {
+    //       console.log('get Todos response:', response.data.todos)
+          
+    //       this.setState({list: response.data.todos})
+    //   }).catch(err => {
+    //       console.log('Get todos error:', err.message)
+    //   })
+    // }
+    
+    try{
+        const resp = await axios.get(`${this.base_url}/todos/${this.api_key}`)
+
+    this.setState({list: resp.data.todos})
+    }
+
+    catch(err){
+        console.log('Get data error:', err.message)
+    }
+}
 
     componentDidMount(){
         this.getListData();
     }
 
-    addItem(item){
-        this.setState({
-            list: [item, ...this.state.list]
-        });
-    }
 
     render(){
         console.log('app state: ', this.state);
