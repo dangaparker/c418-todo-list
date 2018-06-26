@@ -8,7 +8,7 @@ export default props => {
                 {props.title}
             </div>
             <div className="col s2 right-align">
-                <button className='btn red'>Delete</button>
+                <button  onClick={props.delete} className='btn red'>Delete</button>
             </div>
 
         </li>
